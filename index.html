@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행과 우리 - 가네의 9가지 수업사태 발표</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ffb7c5;
+            --soft-blue: #a2d2ff;
+            --lemon: #fff9c4;
+            --mint: #b2e2f2;
+            --text-dark: #2c3e50;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #f0f2f5;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide {
+            position: absolute;
+            width: 90%;
+            height: 85%;
+            max-width: 1100px;
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border: 10px solid var(--mint);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.5s ease-in-out, opacity 0.5s;
+            opacity: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            z-index: 5;
+        }
+
+        /* 폰트 설정 */
+        h1, h2, h3 { font-family: 'Jua', sans-serif; color: var(--text-dark); }
+        h1 { font-size: 4rem; color: #ff8fa3; margin-bottom: 20px; text-shadow: 2px 2px 0px var(--lemon); }
+        h2 { font-size: 2.8rem; margin-bottom: 30px; border-bottom: 6px solid var(--lemon); display: inline-block; }
+        p, li { font-size: 1.6rem; line-height: 1.6; color: #444; font-family: 'Gaegu', cursive; }
+
+        /* 그리드 및 카드 레이아웃 */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; }
+        .card { background: #fdfdfd; padding: 25px; border-radius: 20px; border: 3px dashed var(--primary-pink); }
+        .card h3 { font-size: 1.8rem; color: #5bb3d1; margin-bottom: 10px; }
+
+        /* 컨트롤 버튼 */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 100px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: white;
+            border: 4px solid var(--soft-blue);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-btn:hover { background: var(--soft-blue); color: white; transform: scale(1.1); }
+
+        .progress {
+            font-family: 'Jua';
+            font-size: 1.5rem;
+            color: #888;
+            align-self: center;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: var(--lemon);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 1.2rem;
+        }
+
+        ul { list-style-position: inside; }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div class="slide active">
+            <h1>[여행과 우리]</h1>
+            <p style="font-size: 2.5rem; color: #666;">가네의 9가지 수업사태를 적용한<br>교육과정 홈페이지 제작 보고서</p>
+            <div style="margin-top: 40px;">
+                <span class="tech-tag">문헌정보교육</span>
+                <span class="tech-tag">도서관 전산화 과제</span>
+            </div>
+            <p style="margin-top: 50px; font-weight: bold;">이용희(조장) · 김영림 · 조한숙 · 유승희</p>
+        </div>
+
+        <div class="slide">
+            <h2>1. 프로젝트 배경 및 목적</h2>
+            <div class="card" style="width: 100%;">
+                <ul style="font-size: 2rem;">
+                    <li><strong>문헌정보교육 & 도서관 전산화</strong> 수업 연계 과제</li>
+                    <li>1학기 설계한 <strong>'여행과 우리'</strong> 교육과정의 실질적 디지털 구현</li>
+                    <li>수업에서 배운 전산화 기술을 교육 콘텐츠에 최적화</li>
+                    <li><strong>가네의 9가지 수업사태</strong>를 통한 논리적 학습 흐름 구축</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>2. 제작 방법 및 사용 기술</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>데이터 및 구조</h3>
+                    <p>XML, HTML5</p>
+                    <p>교육 데이터의 체계화 및 웹 뼈대 구축</p>
+                </div>
+                <div class="card">
+                    <h3>디자인 및 시각화</h3>
+                    <p>CSS3, Python Turtle</p>
+                    <p>시각적 학습 요소 및 인터페이스 디자인</p>
+                </div>
+                <div class="card" style="grid-column: span 2;">
+                    <h3>시스템 융합 및 배포</h3>
+                    <p>JavaScript, Anti-Gravity, GitHub Pages</p>
+                    <p>동적 상호작용 구현 및 전체 작업물 통합 배포</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>3. 가네의 9가지 수업사태 적용</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>도입 (1-3단계)</h3>
+                    <p>주의집중(Turtle), 목표 제시,<br>선행학습 상기</p>
+                </div>
+                <div class="card">
+                    <h3>전개 (4-6단계)</h3>
+                    <p>자극 제시(단원별 콘텐츠),<br>학습 안내 및 수행 유도</p>
+                </div>
+                <div class="card" style="grid-column: span 2;">
+                    <h3>정리 (7-9단계)</h3>
+                    <p>피드백 제공, 수행 평가(PDF 활동지), 파지와 전이 강화</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>4. 역할 분담 - 리더십과 기획</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>👤 이용희 (조장)</h3>
+                    <p>• 전체적 틀 및 회의 구성 주도</p>
+                    <p>• 제 4단원 활동 구상</p>
+                    <p>• 프로젝트 총괄 및 발표 진행</p>
+                </div>
+                <div class="card">
+                    <h3>👤 김영림 (조원)</h3>
+                    <p>• 제 1단원 구상 및 학습 자료 메뉴화</p>
+                    <p>• 전체 디자인 가이드 도움</p>
+                    <p>• PPT 및 발표 자료 제작</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>5. 역할 분담 - 콘텐츠와 기술</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>👤 조한숙 (조원)</h3>
+                    <p>• 제 2~3단원 핵심 콘텐츠 구상</p>
+                    <p>• 회의 시 적극적인 의견 개진</p>
+                    <p>• 교과 내용의 논리적 심화 담당</p>
+                </div>
+                <div class="card" style="border: 4px solid var(--soft-blue);">
+                    <h3>👤 유승희 (조원)</h3>
+                    <p>• <strong>전체 시스템 통합 및 코딩</strong></p>
+                    <p>• Anti-Gravity 활용 전체 융합</p>
+                    <p>• 깃허브 업로드 및 최종 QA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>6. 제작 과정: 협업과 융합</h2>
+            <p style="text-align: left; margin-bottom: 20px;">각 팀원이 구상한 단원별 자료를 <strong>Anti-Gravity</strong>를 통해 하나의 시스템으로 결합했습니다.</p>
+            <div class="card" style="background: var(--lemon);">
+                <p>1. 개별 단원 구상 (전 팀원) → 2. 자료 및 코드 수합 → 3. Anti-Gravity 기반 융합 (유승희) → 4. 깃허브 최종 배포</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>7. 기대효과 및 향후 발전</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>기대 효과</h3>
+                    <p>자기주도적 여행 학습 환경 제공</p>
+                    <p>도서관 전산화의 교육적 활용 사례</p>
+                </div>
+                <div class="card">
+                    <h3>향후 발전</h3>
+                    <p>모바일 반응형 최적화</p>
+                    <p>실시간 데이터 연동 기능 확장</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>8. 결과물 확인</h2>
+            <p>가네의 수업사태가 녹아든 우리들의 홈페이지!</p>
+            <a href="https://ysh008125-ux.github.io/tmdtmd11/" target="_blank" style="text-decoration: none;">
+                <div class="card" style="background: var(--soft-blue); color: white; font-family: 'Jua'; font-size: 2.5rem; text-align: center; margin-top: 30px;">
+                    홈페이지 바로가기 ✈️
+                </div>
+            </a>
+            <p style="margin-top: 40px; font-size: 1.2rem;">감사합니다. 질의응답을 시작하겠습니다.</p>
+        </div>
+
+        <div class="controls">
+            <button class="nav-btn" onclick="moveSlide(-1)">◀</button>
+            <div class="progress"><span id="currentNum">1</span> / 9</div>
+            <button class="nav-btn" onclick="moveSlide(1)">▶</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const currentNumDisplay = document.getElementById('currentNum');
+
+        function moveSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            currentNumDisplay.innerText = currentSlide + 1;
+        }
+
+        // 키보드 이벤트
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') moveSlide(1);
+            if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+    </script>
+</body>
+</html>
