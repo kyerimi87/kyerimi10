@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행과 우리 - 고가독성 발표 PPT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Do+Hyeon&family=Nanum+Gothic:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fffdf5;
+            --main: #ff8fa3;
+            --sub: #5bb3d1;
+            --point: #ff9e7d;
+            --border: #b2e2f2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #eef2f3;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 슬라이드 컨테이너 크기 대폭 확대 */
+        .slide-container {
+            position: relative;
+            width: 95vw;
+            height: 90vh;
+            max-width: 1400px;
+            background: var(--bg);
+            border: 15px solid var(--border);
+            border-radius: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide {
+            position: absolute;
+            width: 90%;
+            height: 80%;
+            display: none;
+            flex-direction: column;
+            justify-content: center; /* 중앙 집중 */
+            align-items: center;     /* 중앙 집중 */
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .slide.active { display: flex; opacity: 1; z-index: 5; }
+
+        /* 글자 크기 대폭 확대 */
+        h1 { font-family: 'Jua', sans-serif; font-size: 6rem; color: var(--main); margin-bottom: 20px; line-height: 1.2; }
+        h2 { font-family: 'Do Hyeon', sans-serif; font-size: 4.5rem; color: var(--sub); margin-bottom: 40px; border-bottom: 8px solid var(--lemon); }
+        h3 { font-family: 'Jua', sans-serif; font-size: 2.8rem; color: #333; margin-bottom: 15px; }
+        p, li { font-family: 'Do Hyeon', sans-serif; font-size: 2.5rem; line-height: 1.5; color: #444; list-style: none; }
+
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; width: 100%; margin-top: 20px; }
+        .card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 30px; 
+            border: 5px solid #eee;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tech-badge {
+            background: var(--point);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            font-family: 'Jua';
+        }
+
+        /* 컨트롤러 크기 확대 */
+        .controls {
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: var(--main);
+            color: white;
+            border: none;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(255,143,163,0.4);
+        }
+
+        .nav-btn:hover { transform: scale(1.1); background: var(--sub); }
+
+        .progress { font-family: 'Jua'; font-size: 2rem; color: #777; }
+
+        .highlight { color: var(--main); font-weight: 800; }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div class="slide active">
+            <h1>[여행과 우리]</h1>
+            <p style="font-size: 3rem; color: #666;">가네의 9가지 수업사태 기반<br>교육과정 홈페이지 구현</p>
+            <p style="margin-top: 50px; font-weight: bold; font-size: 2.2rem;">이용희 · 김영림 · 조한숙 · 유승희</p>
+        </div>
+
+        <div class="slide">
+            <h2>1. 프로젝트 의도</h2>
+            <div class="card" style="width: 100%;">
+                <p>문헌정보교육 & 도서관 전산화 과제</p>
+                <p class="highlight">"1학기 교육과정의 동적 학습 플랫폼 변환"</p>
+                <p>가네의 이론을 실제 시스템으로 증명</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>2. 기술적 스택</h2>
+            <div class="grid">
+                <div class="card"><h3>HTML5 / XML</h3><p>구조 및 데이터</p></div>
+                <div class="card"><h3>CSS3 / Anti-Gravity</h3><p>디자인 및 통합</p></div>
+                <div class="card"><h3>JavaScript</h3><p>동적 기능</p></div>
+                <div class="card"><h3>Python Turtle</h3><p>시각화</p></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>3. 기술 적용 핵심 사례</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="tech-badge">Python Turtle</span>
+                    <h3>주의집중 시각화</h3>
+                    <p>도입부 그래픽 구현</p>
+                </div>
+                <div class="card">
+                    <span class="tech-badge">XML</span>
+                    <h3>정보 조직화</h3>
+                    <p>학습 데이터 체계적 관리</p>
+                </div>
+                <div class="card">
+                    <span class="tech-badge">JavaScript</span>
+                    <h3>활동지 시스템</h3>
+                    <p>PDF 호출 및 상호작용</p>
+                </div>
+                <div class="card">
+                    <span class="tech-badge">Anti-Gravity</span>
+                    <h3>시스템 융합</h3>
+                    <p>전체 단원의 유기적 결합</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>4. 가네의 수업사태 적용</h2>
+            
+            <div class="grid">
+                <div class="card"><h3>1단계: 주의집중</h3><p>Turtle 시각 요소</p></div>
+                <div class="card"><h3>8단계: 수행평가</h3><p>PDF 활동지 시스템</p></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>5. 역할 분담: 기획</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="tech-badge" style="background:var(--sub)">조장</span>
+                    <h3>이용희</h3>
+                    <p>총괄 프레임워크 설계<br>제 4단원 활동 구상</p>
+                </div>
+                <div class="card">
+                    <span class="tech-badge">조원</span>
+                    <h3>김영림</h3>
+                    <p>제 1단원 및 자료 수집<br>발표 자료 총괄 제작</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>6. 역할 분담: 개발</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="tech-badge">조원</span>
+                    <h3>조한숙</h3>
+                    <p>2~3단원 심화 콘텐츠<br>교수설계 논리 보완</p>
+                </div>
+                <div class="card" style="border: 8px solid var(--sub);">
+                    <span class="tech-badge" style="background:var(--sub)">메인개발</span>
+                    <h3>유승희</h3>
+                    <p><strong>전체 시스템 코딩 및 통합</strong><br>Anti-Gravity 융합 및 배포</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>7. 발전 방향</h2>
+            <div class="card" style="width: 100%;">
+                <p>✔️ 1학기 설계와 2학기 기술의 성공적 조화</p>
+                <p>✔️ 도서관 데이터 API 연동 시도 예정</p>
+                <p class="highlight">✔️ 반응형 학습 최적화 시스템 구축</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1>감사합니다</h1>
+            <p style="font-size: 3rem;">질의응답 및 시연을 시작하겠습니다</p>
+            <a href="https://ysh008125-ux.github.io/tmdtmd11/" target="_blank" style="margin-top:40px; color:var(--sub); font-size: 2rem;">완성 페이지 시연 ✈️</a>
+        </div>
+
+        <div class="controls">
+            <button class="nav-btn" onclick="moveSlide(-1)">◀</button>
+            <div class="progress"><span id="cur">1</span> / 9</div>
+            <button class="nav-btn" onclick="moveSlide(1)">▶</button>
+        </div>
+    </div>
+
+    <script>
+        let curSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const numDisp = document.getElementById('cur');
+
+        function moveSlide(n) {
+            slides[curSlide].classList.remove('active');
+            curSlide = (curSlide + n + slides.length) % slides.length;
+            slides[curSlide].classList.add('active');
+            numDisp.innerText = curSlide + 1;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') moveSlide(1);
+            if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+    </script>
+</body>
+</html>
